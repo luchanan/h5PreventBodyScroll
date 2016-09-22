@@ -11,6 +11,11 @@
         mask:true,
         maskClick:true,
     };
+    var methods=function(){
+        return{
+            disableBodyScroll:disableBodyScroll
+        }
+    }
     var preventDefault=function(e) {
         e.preventDefault();
     }
@@ -34,7 +39,12 @@
         init:function(options){
             console.log("a");
         },
+        methods:methods,
         disableBodyScroll:disableBodyScroll
     }
-    window.h5PreventBodyScroll=preventBodyScroll;
+    var h5PreventBodyScroll=function(options){
+        return new preventBodyScroll(options);
+    }
+    //window.h5PreventBodyScroll=preventBodyScroll;
+    window.h5PreventBodyScroll=h5PreventBodyScroll;
 }));

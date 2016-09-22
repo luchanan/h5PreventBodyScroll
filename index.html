@@ -44,9 +44,11 @@
         <script src="h5PreventBodyScroll.js"></script>
         <script>
         	$("#open").click(function(){
-        		var a=new h5PreventBodyScroll();
+        		/*var a=new h5PreventBodyScroll();
         		a.init();
-        		a.disableBodyScroll();
+        		a.disableBodyScroll();*/
+                var a=h5PreventBodyScroll();
+                a.disableBodyScroll();
         	});
         </script>
 	</body>
