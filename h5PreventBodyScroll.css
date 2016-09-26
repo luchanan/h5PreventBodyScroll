@@ -20,4 +20,8 @@
     -webkit-overflow-scrolling: touch;
     margin:0 auto;
     overflow:auto;
+    position:absolute;
+    top:20px;
+    left:50%;
+    margin-left:-150px;
 }

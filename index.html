@@ -39,7 +39,7 @@
         <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
         <script src="h5PreventBodyScroll.js"></script>
         <script>
-        	$("#open").click(function(){
+        	$("#open").click(function(e){
         		var a=new h5PreventBodyScroll({triggerEle:"#open",scrollEle:["#scroll1"]});
         		a.init();
                 $(".h5PreventBodyScroll").append($('<div>').append($('#scroll1').clone()).html());

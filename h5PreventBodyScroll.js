@@ -33,14 +33,35 @@
         e.stopPropagation();
     }
     var elementsScroll=function(e){
+        var isLandscape;//标志是否横竖向
         for(var i=0;i<this.settings.scrollEle.length;i++){
-            $(this.settings.onEventBindTo).on("touchstart",this.settings.scrollEle[i],function(e){
+            $(this.settings.html).on("touchstart",this.settings.scrollEle[i],function(e){
                 startX = e.originalEvent.changedTouches[0].pageX;/*jquery不能使用e.changedTouches[0].pageX获取坐标*/
                 startY = e.originalEvent.changedTouches[0].pageY;
+                console.log("x:"+startX+",y:"+startY);
             });
-            $(this.settings.onEventBindTo).on("touchmove",this.settings.scrollEle[i],function(e){
+            $(this.settings.html).on("touchmove",this.settings.scrollEle[i],function(e){
+                 e.stopPropagation();
                  var rangeX=e.originalEvent.changedTouches[0].pageX-startX;
                  var rangeY=e.originalEvent.changedTouches[0].pageY-startY;
+                 isLandscape=Math.abs(rangeY) < Math.abs(rangeX) ?true:false;//true横向，false纵向
+                 console.log("rangeX:"+startX+",rangeY:"+startY);
+                 var box = $(this).get(0);
+                 console.log($(box).height());
+                 console.log(box.scrollHeight);
+                 console.log(box.scrollTop);
+                if($(box).height() + box.scrollTop >= box.scrollHeight){
+                    if(rangeY < 0) {
+                        e.preventDefault();
+                        return false;
+                    }
+                }
+                if(box.scrollTop === 0){
+                    if(rangeY > 0) {
+                        e.preventDefault();
+                        return false;
+                    }
+                }
             });
         }
     }
