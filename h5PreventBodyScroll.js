@@ -15,16 +15,18 @@
         maskClickName:".h5PreventBodyScroll",
         onEventBindTo:document,
         triggerEle:null,
-        scrollEle:[],
+        scrollEle:[],//需要绑定scroll的元素
         scrollTemp:'',
     };
     var disableBodyScroll = function(){
-        document.addEventListener('touchmove',preventDefault);
         document.addEventListener('mousewheel',preventDefault);
+        document.addEventListener('touchmove',preventDefault);
+
     };
     var enableBodyScroll = function(){
-        document.removeEventListener('touchmove',preventDefault);
         document.removeEventListener('mousewheel',preventDefault);
+        document.removeEventListener('touchmove',preventDefault);
+
     };
     var preventDefault=function(e) {
         e.preventDefault();
@@ -38,31 +40,40 @@
             $(this.settings.html).on("touchstart",this.settings.scrollEle[i],function(e){
                 startX = e.originalEvent.changedTouches[0].pageX;/*jquery不能使用e.changedTouches[0].pageX获取坐标*/
                 startY = e.originalEvent.changedTouches[0].pageY;
-                console.log("x:"+startX+",y:"+startY);
             });
+            //document已经preventDefault，不能将事件绑定在document上，没有效果
             $(this.settings.html).on("touchmove",this.settings.scrollEle[i],function(e){
-                 e.stopPropagation();
+                 stopPropagation(e);
                  var rangeX=e.originalEvent.changedTouches[0].pageX-startX;
                  var rangeY=e.originalEvent.changedTouches[0].pageY-startY;
                  isLandscape=Math.abs(rangeY) < Math.abs(rangeX) ?true:false;//true横向，false纵向
-                 console.log("rangeX:"+startX+",rangeY:"+startY);
-                 var box = $(this).get(0);
-                 console.log($(box).height());
-                 console.log(box.scrollHeight);
-                 console.log(box.scrollTop);
-                if($(box).height() + box.scrollTop >= box.scrollHeight){
-                    if(rangeY < 0) {
-                        e.preventDefault();
-                        return false;
-                    }
+                 // 只能纵向滚
+                if(isLandscape){
+                    preventDefault(e);
+                    return false;
                 }
-                if(box.scrollTop === 0){
-                    if(rangeY > 0) {
-                        e.preventDefault();
-                        return false;
-                    }
-                }
+                scrollTopOrBottom(rangeY,this,e);
             });
+            /*$(this.settings.html).on("mousewheel",this.settings.scrollEle[i],function(e){
+                stopPropagation(e);
+                var rangeY = e.wheelDelta || e.detail || 0;
+                scrollTopOrBottom(rangeY,this,e);
+            });*/
+        }
+    }
+    var scrollTopOrBottom=function(rangeY,ele,e){
+        var box = $(ele).get(0);
+        if($(box).height() + box.scrollTop >= box.scrollHeight){
+            if(rangeY < 0) {
+                preventDefault(e);
+                return false;
+            }
+        }
+        if(box.scrollTop === 0){
+            if(rangeY > 0) {
+                preventDefault(e);
+                return false;
+            }
         }
     }
     /*var methods={
@@ -85,6 +96,7 @@
         htmlTemplate:function(){
             var randomId="id"+(new Date()).getTime();
             this.settings.html=$('<div class="h5PreventBodyScroll '+(this.settings.mask?'':'maskFalse')+'" id="'+randomId+'"></div>');
+            this.settings.html.append(this.settings.scrollTemp==""?"":this.settings.scrollTemp);
             this.settings.html.appendTo(this.settings.appendEle);
             $(this.settings.triggerEle).attr("show",randomId);
             this.bindEvent();

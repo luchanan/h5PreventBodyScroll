@@ -26,23 +26,40 @@
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p><input type="button" value="选择" id="open"></p><p>5</p><p>6</p>
-        <div id="scroll1">
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+        <div id="append1" style="display:none">
+            <div id="scroll2" class="scroll">
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p><a href="http://www.baidu.com">百度</a></p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+            </div>
+        </div>
+        <div id="append" style="display:none">
+            <div id="scroll1" class="scroll">
+                <p>3</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>3</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p><a href="http://www.baidu.com">百度</a></p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+            </div>
         </div>
         <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
         <script src="h5PreventBodyScroll.js"></script>
         <script>
         	$("#open").click(function(e){
-        		var a=new h5PreventBodyScroll({triggerEle:"#open",scrollEle:["#scroll1"]});
+        		var a=new h5PreventBodyScroll({
+                    triggerEle:"#open",
+                    scrollEle:["#scroll1"],
+                    scrollTemp:$("#append").html()
+                });
         		a.init();
-                $(".h5PreventBodyScroll").append($('<div>').append($('#scroll1').clone()).html());
                 a.elementsScroll();
         		//a.disableBodyScroll();
                /* var a=h5PreventBodyScroll();
@@ -51,8 +68,13 @@
 
         	});
             $("#open1").click(function(){
-                var a=new h5PreventBodyScroll({triggerEle:"#open1"});
+                var a=new h5PreventBodyScroll({
+                    triggerEle:"#open1",
+                    scrollEle:["#scroll2"],
+                    scrollTemp:$("#append1").html()
+                });
                 a.init();
+                a.elementsScroll();
             });
         </script>
 	</body>
