@@ -16,7 +16,7 @@
         onEventBindTo:document,
         triggerEle:null,
         scrollEle:[],//需要绑定scroll的元素
-        scrollTemp:'',
+        scrollTemp:''
     };
     var disableBodyScroll = function(){
         document.addEventListener('mousewheel',preventDefault);
@@ -86,6 +86,7 @@
     preventBodyScroll.prototype={
         init:function(){
             if($(this.settings.triggerEle).attr("show")!=undefined){
+                console.log(this.settings.triggerEle);
                 this.show("#"+$(this.settings.triggerEle).attr("show"));
             }
             else{
@@ -126,7 +127,7 @@
         },
         disableBodyScroll:disableBodyScroll,
         enableBodyScroll:enableBodyScroll,
-        elementsScroll:elementsScroll
+        elementsScroll:elementsScroll,
     }
     // var h5PreventBodyScroll=function(options){
     //     return new preventBodyScroll(options);

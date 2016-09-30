@@ -16,28 +16,16 @@
         <link rel="stylesheet" type="text/css" href="h5PreventBodyScroll.css">
 		<title>首页</title>
 	</head>
-	<body>
+	<body class="modal-open">
 		<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-        <p>1</p><p>2</p><p><input type="button" value="选择" id="open1"></p><p>4</p><p>5</p><p>6</p>
+        <p>1</p><p>2</p><p><input type="button" value="单个滚动11" id="open1"></p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
         <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-        <p>1</p><p>2</p><p>3</p><p><input type="button" value="选择" id="open"></p><p>5</p><p>6</p>
-        <div id="append1" style="display:none">
-            <div id="scroll2" class="scroll">
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p><a href="http://www.baidu.com">百度</a></p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-                <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
-            </div>
-        </div>
+        <p>1</p><p>2</p><p>3</p><p><input type="button" value="租房选择" id="open2"></p><p>5</p><p>6</p>
         <div id="append" style="display:none">
             <div id="scroll1" class="scroll">
                 <p>3</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
@@ -50,10 +38,46 @@
                 <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
             </div>
         </div>
+        <div id="append1">
+            <div id="scroll2" class="zu">
+                <ul class="navi flex">
+                    <li class="flex_item">位置</li>
+                    <li class="flex_item">租金</li>
+                    <li class="flex_item">户型室</li>
+                    <li class="flex_item">来源</li>
+                </ul>
+                <ol class="items flex">
+                    <li class="flex_item">
+                        <ul class="item">
+                            <li>附近</li>
+                            <li>区域</li>
+                            <li>地铁</li>
+                        </ul>
+                    </li>
+                    <li class="flex_item">
+                        <ul class="item">
+                            <li>深圳</li>
+                            <li>罗湖</li>
+                            <li>福田</li>
+                            <li>南山</li>
+                            
+                        </ul>
+                    </li>
+                    <li class="flex_item">
+                        <ul class="item">
+                            <li>深圳</li>
+                            <li>罗湖</li>
+                            <li>福田</li>
+                            <li>南山</li>   
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
         <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
         <script src="h5PreventBodyScroll.js"></script>
         <script>
-        	$("#open").click(function(e){
+        	$("#open1").click(function(e){
         		var a=new h5PreventBodyScroll({
                     triggerEle:"#open",
                     scrollEle:["#scroll1"],
@@ -67,7 +91,7 @@
                 a.methods.test();*/
 
         	});
-            $("#open1").click(function(){
+            $("#open2").click(function(){
                 var a=new h5PreventBodyScroll({
                     triggerEle:"#open1",
                     scrollEle:["#scroll2"],

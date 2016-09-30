@@ -1,4 +1,8 @@
 @charset "utf-8";
+html *{
+    margin:0;
+    padding: 0;
+}
 .h5PreventBodyScroll{
     width: 100%;
     height: 100%;
@@ -17,7 +21,7 @@
     width:300px;
     height:400px;
     background:#fff;
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch; */
     margin:0 auto;
     overflow:auto;
     position:absolute;
@@ -25,4 +29,33 @@
     left:50%;
     margin-left:-150px;
 
+}
+/*demo*/
+.flex{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex_item{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.zu{
+    position:fixed;
+    top:0;
+    width:100%;
+    font-size: 14px;
+    background:#fff;
+}
+.zu .navi{
+    list-style: none;
+    border-bottom: 1px solid #f3f3f3;
+    line-height:44px;
+    
+}
+.zu .navi li{
+    text-align: center;
 }
