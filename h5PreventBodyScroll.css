@@ -12,7 +12,7 @@ html *{
     z-index: 998;
     background-color:rgba(0,0,0,.8);
     cursor: pointer;
-    /* display: none; */
+    
 }
 .h5PreventBodyScroll.maskFalse{
     background-color:rgba(0,0,0,0);
