@@ -38,7 +38,7 @@
                 <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
             </div>
         </div>
-        <div id="append1">
+        <div id="append1" >
             <div id="scroll2" class="zu">
                 <ul class="navi flex">
                     <li class="flex_item">位置</li>
@@ -46,29 +46,43 @@
                     <li class="flex_item">户型室</li>
                     <li class="flex_item">来源</li>
                 </ul>
-                <ol class="items flex">
+                <ol class="items flex" style="display:none">
                     <li class="flex_item">
                         <ul class="item">
-                            <li>附近</li>
-                            <li>区域</li>
-                            <li>地铁</li>
+                            <li>
+                                <a href="javascript:void(0)" data-show="">附近</a>
+                                <a href="javascript:void(0)">区域</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="flex_item">
-                        <ul class="item">
-                            <li>深圳</li>
-                            <li>罗湖</li>
-                            <li>福田</li>
-                            <li>南山</li>
-                            
+                    <li class="flex_item" style="display:none">
+                        <ul class="flex item">
+                            <li class="flex_item">
+                                <a href="javascript:void(0)">100米</a>
+                                <a href="javascript:void(0)">500米</a>
+                                <a href="javascript:void(0)">1000米</a>
+                            </li>
+                            <li class="flex_item item2" style="display:none">
+                                <a href="javascript:void(0)">罗湖</a>
+                                <a href="javascript:void(0)">福田</a>
+                                <a href="javascript:void(0)">南山</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="flex_item">
-                        <ul class="item">
-                            <li>深圳</li>
-                            <li>罗湖</li>
-                            <li>福田</li>
-                            <li>南山</li>   
+                    <li class="flex_item" style="display:none">
+                        <ul class="flex item">
+                            <li class="flex_item">
+                                <a href="javascript:void(0)">蔡屋围</a>
+                                <a href="javascript:void(0)">国贸</a>
+                            </li>
+                            <li class="flex_item">
+                                <a href="javascript:void(0)">八卦岭</a>
+                                <a href="javascript:void(0)">莲花二村</a>
+                            </li>
+                            <li class="flex_item">
+                                <a href="javascript:void(0)">桂庙路口</a>
+                                <a href="javascript:void(0)">白石洲</a>
+                            </li>
                         </ul>
                     </li>
                 </ol>
@@ -100,6 +114,14 @@
                 a.init();
                 a.elementsScroll();
             });
+            $(document).on("click",".navi li",function(){
+                $(this).addClass('hover').siblings().removeClass('hover');
+                var index=$(this).index();
+                $(".items").hide().eq(index).show();
+            })
+            $(document).on("click",".item a",function(){
+                $(this).addClass('hover').siblings().removeClass('hover');
+            })
         </script>
 	</body>
 </html>

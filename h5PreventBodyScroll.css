@@ -3,6 +3,9 @@ html *{
     margin:0;
     padding: 0;
 }
+ul,ol{
+    list-style:none;
+}
 .h5PreventBodyScroll{
     width: 100%;
     height: 100%;
@@ -51,11 +54,33 @@ html *{
     background:#fff;
 }
 .zu .navi{
-    list-style: none;
     border-bottom: 1px solid #f3f3f3;
     line-height:44px;
-    
+
 }
 .zu .navi li{
     text-align: center;
+}
+.item a{
+    text-decoration: none;
+    text-align:left;
+    padding-left:20px;
+    display:block;
+    color: #424242;
+    line-height:44px;
+}
+ol.items{
+    height:300px;
+    max-height: 300px;
+    border-bottom: solid 1px #fafafa;
+}
+ol.items li:not(:first-child){
+    border-left: solid 1px #fafafa;
+}
+.hover{
+    background:#f6f6f6;
+}
+.navi li.hover{
+    color:#55C1DD;
+    background:transparent;
 }
