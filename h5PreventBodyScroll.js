@@ -9,12 +9,12 @@
 }(function ($) {
     var startX,startY;
     var defaults ={
-        mask:true,
-        maskClick:true,
+        mask:true,//是否显示蒙层
+        maskClick:true,//允许蒙层关闭
         appendEle:'body',
         maskClickName:".h5PreventBodyScroll",
-        onEventBindTo:document,
-        triggerEle:null,
+        onEventBindTo:document,//动态绑定到document
+        triggerEle:null,//页面上触发click元素
         scrollEle:[],//需要绑定scroll的元素
         scrollTemp:''
     };
@@ -58,7 +58,7 @@
                     scrollTopOrBottom(rangeY,this,e);
                 });
             //})(i);
-            
+
             /*$(this.settings.html).on("mousewheel",this.settings.scrollEle[i],function(e){
                 stopPropagation(e);
                 var rangeY = e.wheelDelta || e.detail || 0;

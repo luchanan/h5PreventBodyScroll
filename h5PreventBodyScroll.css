@@ -25,7 +25,7 @@ ul,ol{
     width:300px;
     height:400px;
     background:#fff;
-    /* -webkit-overflow-scrolling: touch; */
+   -webkit-overflow-scrolling: touch;
     margin:0 auto;
     overflow:auto;
     position:absolute;
@@ -33,6 +33,10 @@ ul,ol{
     left:50%;
     margin-left:-150px;
 
+}
+.touchScroll{
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
 }
 /*demo*/
 .flex{
