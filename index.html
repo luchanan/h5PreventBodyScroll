@@ -38,7 +38,7 @@
                 <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
             </div>
         </div>
-        <div id="append1" >
+        <div id="append1" style="display:none">
             <div id="scroll2" class="zu">
                 <ul class="navi flex">
                     <li class="flex_item">位置</li>
@@ -46,44 +46,78 @@
                     <li class="flex_item">户型室</li>
                     <li class="flex_item">来源</li>
                 </ul>
-                <ol class="items flex" style="display:none">
-                    <li class="flex_item">
-                        <ul class="item">
-                            <li>
-                                <a href="javascript:void(0)" data-show="">附近</a>
-                                <a href="javascript:void(0)">区域</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="flex_item" style="display:none">
-                        <ul class="flex item">
+                <ol class="items">
+                    <li class="hide">
+                        <ul class="muti position flex">
                             <li class="flex_item">
-                                <a href="javascript:void(0)">100米</a>
-                                <a href="javascript:void(0)">500米</a>
+                                <a href="javascript:void(0)" data-show="near">附近</a>
+                                <a href="javascript:void(0)" data-show="area">区域</a>
+                            </li>
+                            <li class="flex_item hide" data-show="near">
                                 <a href="javascript:void(0)">1000米</a>
+                                <a href="javascript:void(0)">2000米</a>
                             </li>
-                            <li class="flex_item item2" style="display:none">
-                                <a href="javascript:void(0)">罗湖</a>
-                                <a href="javascript:void(0)">福田</a>
-                                <a href="javascript:void(0)">南山</a>
+                            <li class="flex_item hide" data-show="area">
+                                <a href="javascript:void(0)" data-show="detail" to="nashan">南山</a>
+                                <a href="javascript:void(0)" data-show="detail" to="futian">福田</a>
+                                <a href="javascript:void(0)" data-show="detail" to="nashan">罗湖 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="futian">盐田 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="nashan">宝安 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="futian">龙岗区 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="nashan">布吉 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="futian">坪山新区 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="nashan">龙华新区 </a>
+                                <a href="javascript:void(0)" data-show="detail" to="futian">大鹏新区 </a>
+                            </li>
+                            <li class="flex_item hide" data-show="detail">
+                                <div data-show="nashan" class="hide">
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                    <a href="javascript:void(0)">白石洲</a>
+                                    <a href="javascript:void(0)">西丽</a>
+                                </div>
+                                <div data-show="futian" class="hide">
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                    <a href="javascript:void(0)">八卦岭</a>
+                                    <a href="javascript:void(0)">华强北</a>
+                                </div>
                             </li>
                         </ul>
                     </li>
-                    <li class="flex_item" style="display:none">
-                        <ul class="flex item">
-                            <li class="flex_item">
-                                <a href="javascript:void(0)">蔡屋围</a>
-                                <a href="javascript:void(0)">国贸</a>
-                            </li>
-                            <li class="flex_item">
-                                <a href="javascript:void(0)">八卦岭</a>
-                                <a href="javascript:void(0)">莲花二村</a>
-                            </li>
-                            <li class="flex_item">
-                                <a href="javascript:void(0)">桂庙路口</a>
-                                <a href="javascript:void(0)">白石洲</a>
-                            </li>
-                        </ul>
+                    <li class="hide">
+                        <a href="javascript:void(0)">不限租金</a>
+                        <a href="javascript:void(0)">600-1000</a>
+                    </li>
+                    <li class="hide">
+                        <a href="javascript:void(0)">整租</a>
+                        <a href="javascript:void(0)">合租</a>
+                    </li>
+                    <li class="hide">
+                        <a href="javascript:void(0)">个人房源</a>
+                        <a href="javascript:void(0)">经纪人</a>
                     </li>
                 </ol>
             </div>
@@ -108,7 +142,7 @@
             $("#open2").click(function(){
                 var a=new h5PreventBodyScroll({
                     triggerEle:"#open1",
-                    scrollEle:["#scroll2"],
+                    scrollEle:["#scroll2",".muti a"],
                     scrollTemp:$("#append1").html()
                 });
                 a.init();
@@ -117,10 +151,22 @@
             $(document).on("click",".navi li",function(){
                 $(this).addClass('hover').siblings().removeClass('hover');
                 var index=$(this).index();
-                $(".items").hide().eq(index).show();
+                $("ol.items").last().children("li").addClass("hide").eq(index).removeClass("hide");
             })
-            $(document).on("click",".item a",function(){
+            $(document).on("click",".items a",function(){
                 $(this).addClass('hover').siblings().removeClass('hover');
+            })
+            $(document).on("click",".muti a",function(){
+                var datashow=$(this).data("show");
+                var to=$(this).attr("to");
+                if(datashow!==undefined){
+                    $("[data-show='"+datashow+"']").last().removeClass("hide").siblings("li:not(:first)").addClass("hide");
+                    if(to!==undefined){
+                        $("[data-show='"+to+"']").parent().children("div").addClass("hide");
+                        $("[data-show='"+to+"']").removeClass("hide");
+                    }
+                }
+                $(this).parents("li").removeClass("hide");
             })
         </script>
 	</body>

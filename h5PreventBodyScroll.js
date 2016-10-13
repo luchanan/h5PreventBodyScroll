@@ -36,24 +36,29 @@
     }
     var elementsScroll=function(e){
         var isLandscape;//标志是否横竖向
+        var _this=this;
         for(var i=0;i<this.settings.scrollEle.length;i++){
-            $(this.settings.html).on("touchstart",this.settings.scrollEle[i],function(e){
-                startX = e.originalEvent.changedTouches[0].pageX;/*jquery不能使用e.changedTouches[0].pageX获取坐标*/
-                startY = e.originalEvent.changedTouches[0].pageY;
-            });
-            //document已经preventDefault，不能将事件绑定在document上，没有效果
-            $(this.settings.html).on("touchmove",this.settings.scrollEle[i],function(e){
-                 stopPropagation(e);
-                 var rangeX=e.originalEvent.changedTouches[0].pageX-startX;
-                 var rangeY=e.originalEvent.changedTouches[0].pageY-startY;
-                 isLandscape=Math.abs(rangeY) < Math.abs(rangeX) ?true:false;//true横向，false纵向
-                 // 只能纵向滚
-                if(isLandscape){
-                    preventDefault(e);
-                    return false;
-                }
-                scrollTopOrBottom(rangeY,this,e);
-            });
+            console.log(_this.settings.scrollEle[i]);
+            //(function(i){
+                $(_this.settings.html).on("touchstart",_this.settings.scrollEle[i],function(e){
+                    startX = e.originalEvent.changedTouches[0].pageX;/*jquery不能使用e.changedTouches[0].pageX获取坐标*/
+                    startY = e.originalEvent.changedTouches[0].pageY;
+                });
+                //document已经preventDefault，不能将事件绑定在document上，没有效果
+                $(_this.settings.html).on("touchmove",_this.settings.scrollEle[i],function(e){
+                     stopPropagation(e);
+                     var rangeX=e.originalEvent.changedTouches[0].pageX-startX;
+                     var rangeY=e.originalEvent.changedTouches[0].pageY-startY;
+                     isLandscape=Math.abs(rangeY) < Math.abs(rangeX) ?true:false;//true横向，false纵向
+                     // 只能纵向滚
+                    if(isLandscape){
+                        preventDefault(e);
+                        return false;
+                    }
+                    scrollTopOrBottom(rangeY,this,e);
+                });
+            //})(i);
+            
             /*$(this.settings.html).on("mousewheel",this.settings.scrollEle[i],function(e){
                 stopPropagation(e);
                 var rangeY = e.wheelDelta || e.detail || 0;
